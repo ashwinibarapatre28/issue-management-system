@@ -3,74 +3,78 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Management System</title>
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="login-page">
+<body>
 
-<div class="login-container">
+<!-- Home Navbar (Image 1) -->
+<header class="home-navbar">
+    <a href="index.html" class="home-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="21" x2="21" y2="21"></line>
+            <line x1="6" y1="18" x2="6" y2="11"></line>
+            <line x1="10" y1="18" x2="10" y2="11"></line>
+            <line x1="14" y1="18" x2="14" y2="11"></line>
+            <line x1="18" y1="18" x2="18" y2="11"></line>
+            <polygon points="12 2 20 7 4 7 12 2"></polygon>
+        </svg>
+        <span>Issue Management System</span>
+    </a>
 
-    <h1>Issue Management System</h1>
-
-    <div class="login-card">
-
-        <h2>Login</h2>
-
-        <form id="loginForm">
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    required
-                >
-            </div>
-
-            <button type="submit">
-                Login
-            </button>
-
-        </form>
-
-        <p id="loginMessage"></p>
-
-        <div class="divider">
-            <span>OR</span>
-        </div>
-
-        <a href="client.html"
-           class="client-button">
-            Client? Submit an Issue
-        </a>
-
+    <div class="home-nav-actions">
+        <a href="login.html" class="btn-nav-outline">Login</a>
+        <a href="client.html" class="btn-nav-solid">Client? Submit an Issue</a>
     </div>
+</header>
 
-</div>
+<!-- Hero Section (Image 1) -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Report Issues.<br>
+            Build a Better Community.
+        </h1>
 
-<script src="js/login.js"></script>
+        <p class="hero-subtitle">
+            A simple and transparent platform to report, track, and resolve public issues for a cleaner, safer, and better city.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="client.html" class="btn-hero-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+                <span>Submit an Issue</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+
+            <a href="login.html" class="btn-hero-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Login</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
