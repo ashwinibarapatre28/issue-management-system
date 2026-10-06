@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Details - Issue Management System</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">
+        Issue Management System
+    </div>
+
+    <div class="topbar-right">
+        <div class="user-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="userName">User 1</span>
+        </div>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+</header>
+
+<div class="sidebar-layout">
+
+    <aside class="sidebar">
+        <a href="user.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            </svg>
+            Dashboard
+        </a>
+
+        <a href="user.html" class="active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            </svg>
+            My Issues
+        </a>
+
+        <a href="queries.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Queries
+        </a>
+    </aside>
+
+    <main class="main-content">
+
+        <a href="user.html" class="back-link" id="backLink">
+            ← Back to My Issues
+        </a>
+
+        <div class="details-card">
+
+            <h2>Issue Details</h2>
+
+            <div class="details-grid">
+                <div class="details-label">Issue ID</div>
+                <div class="details-value" id="issueId">ISS-001</div>
+
+                <div class="details-label">Client Name</div>
+                <div class="details-value" id="client">Rahul Sharma</div>
+
+                <div class="details-label">Category</div>
+                <div class="details-value" id="category">Water</div>
+
+                <div class="details-label">Title</div>
+                <div class="details-value" id="title">Water Leakage</div>
+
+                <div class="details-label">Description</div>
+                <div class="details-value" id="description">Water leaking from main pipeline near the gate.</div>
+
+                <div class="details-label">Location</div>
+                <div class="details-value" id="location">Block A</div>
+
+                <div class="details-label">Status</div>
+                <div class="details-value">
+                    <span id="statusBadge" class="status pending">Pending</span>
+                </div>
+            </div>
+
+            <button id="completeButton" class="btn-complete" onclick="markCompleted()">
+                Mark as Completed
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/issue.js"></script>
+
+</body>
+</html>

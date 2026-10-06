@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit an Issue - Issue Management System</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">
+        Issue Management System
+    </div>
+    <div class="topbar-right">
+        <a href="client.html">Home</a>
+        <a href="client.html">Submit Issue</a>
+        <a href="index.html">Login</a>
+    </div>
+</header>
+
+<div class="form-container">
+    <div class="form-card">
+        <h2>Submit an Issue</h2>
+
+        <form id="issueForm">
+            <div class="form-group">
+                <label for="clientName">Your Name</label>
+                <input
+                    type="text"
+                    id="clientName"
+                    required
+                    placeholder="Enter your name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="category">Issue Category</label>
+                <select id="category" required>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Water">Water</option>
+                    <option value="Cleanliness">Cleanliness</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Issue Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    required
+                    placeholder="Enter issue title"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                    id="description"
+                    required
+                    placeholder="Enter issue description"
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location / Area (Optional)</label>
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Enter location or area"
+                >
+            </div>
+
+            <button type="submit">
+                Submit Issue
+            </button>
+        </form>
+
+        <p id="message" style="margin-top: 15px; font-size: 14px; font-weight: 500; text-align: center;"></p>
+    </div>
+</div>
+
+<script src="js/client.js"></script>
+
+</body>
+</html>

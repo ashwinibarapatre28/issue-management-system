@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queries - Issue Management System</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">
+        Issue Management System
+    </div>
+
+    <div class="topbar-right">
+        <div class="user-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="userName">User</span>
+        </div>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+</header>
+
+<div class="sidebar-layout">
+
+    <aside class="sidebar">
+        <a href="#" id="sidebarDash">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            Dashboard
+        </a>
+
+        <a href="#" id="sidebarIssues">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            </svg>
+            Issues
+        </a>
+
+        <a href="queries.html" class="active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Queries
+        </a>
+    </aside>
+
+    <main class="main-content">
+
+        <!-- USER CHAT VIEW (Screen 7) -->
+        <div id="userQuerySection" class="query-container" style="display: none;">
+            <h2>Ask a Question</h2>
+
+            <div class="chat-box" id="chatBox">
+                <!-- Chat bubbles rendered dynamically -->
+            </div>
+
+            <form id="questionForm" class="chat-input-area">
+                <textarea id="questionInput" placeholder="Type your question..." required></textarea>
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+
+        <!-- ADMIN QUERIES MANAGEMENT VIEW (Screen 8) -->
+        <div id="adminQuerySection" class="table-container" style="display: none;">
+            <div class="table-header-row">
+                <h2>User Queries</h2>
+            </div>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="adminQueryTableBody">
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ADMIN ANSWER MODAL -->
+<div id="answerModal" class="modal-backdrop">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3>Answer Query</h3>
+            <button type="button" class="modal-close" onclick="closeAnswerModal()">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="modal-info-group">
+                <strong>Question:</strong> <span id="modalQuestionText">-</span>
+            </div>
+
+            <div class="form-group" style="margin-top: 16px;">
+                <label for="answerInput">Admin Answer</label>
+                <textarea id="answerInput" placeholder="Type answer here..." required></textarea>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button type="button" class="btn-secondary" onclick="closeAnswerModal()">Cancel</button>
+            <button type="button" id="confirmAnswerBtn" class="btn">Submit Answer</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/queries.js"></script>
+
+</body>
+</html>

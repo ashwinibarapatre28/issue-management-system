@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Issue Management System</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">
+        Issue Management System
+    </div>
+
+    <div class="topbar-right">
+        <div class="user-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="adminName">Admin</span>
+        </div>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+</header>
+
+<div class="sidebar-layout">
+
+    <aside class="sidebar">
+        <a href="admin.html" class="active" id="navDashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            Dashboard
+        </a>
+
+        <a href="admin.html" id="navAllIssues">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+            All Issues
+        </a>
+
+        <a href="#" id="navUsers" onclick="showUsersView(event)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M7 23v-2a4 4 0 0 1 3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+            </svg>
+            Users
+        </a>
+
+        <a href="queries.html" id="navQueries">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Queries
+        </a>
+    </aside>
+
+    <main class="main-content">
+
+        <div class="dashboard" id="mainDashboardView">
+
+            <h1 id="pageTitle">Dashboard</h1>
+
+            <!-- Metric Stat Cards (Screen 3) -->
+            <div class="stats" id="statsSection">
+                <div class="stat-card total">
+                    <h3>Total Issues</h3>
+                    <p id="totalIssues">0</p>
+                </div>
+
+                <div class="stat-card pending">
+                    <h3>Pending</h3>
+                    <p id="pendingIssues">0</p>
+                </div>
+
+                <div class="stat-card progress">
+                    <h3>In Progress</h3>
+                    <p id="progressIssues">0</p>
+                </div>
+
+                <div class="stat-card completed">
+                    <h3>Completed</h3>
+                    <p id="completedIssues">0</p>
+                </div>
+            </div>
+
+            <!-- Issues Table Section -->
+            <div class="table-container">
+
+                <div class="table-header-row">
+                    <h2 id="tableSectionTitle">All Issues</h2>
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" placeholder="Search...">
+                    </div>
+                </div>
+
+                <table id="issuesTable">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Client Name</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Assigned User</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="issueTableBody">
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ASSIGN ISSUE MODAL (Screen 4) -->
+<div id="assignModal" class="modal-backdrop">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3>Assign Issue</h3>
+            <button type="button" class="modal-close" onclick="closeAssignModal()">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="modal-info-group">
+                <strong>Issue ID:</strong> <span id="modalIssueId">ISS-000</span>
+            </div>
+
+            <div class="modal-info-group">
+                <strong>Title:</strong> <span id="modalIssueTitle">-</span>
+            </div>
+
+            <div class="modal-info-group">
+                <strong>Client:</strong> <span id="modalClientName">-</span>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="assignSelect">Assign to User</label>
+                <select id="assignSelect">
+                    <option value="">Select User...</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button type="button" class="btn-secondary" onclick="closeAssignModal()">Cancel</button>
+            <button type="button" id="confirmAssignBtn" class="btn">Assign</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>
