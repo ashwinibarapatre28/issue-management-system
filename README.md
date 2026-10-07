@@ -63,6 +63,8 @@ Email: admin@gmail.com
 Password: admin123
 Role: Admin
 
+### User Account
+
 Email: user1@gmail.com
 Password: user123
 Role: User
