@@ -10,11 +10,6 @@ The system allows clients to submit issues, administrators to manage and assign 
 
 https://issue-management-system-4hfb.onrender.com/
 
-## 📂 GitHub Repository
-
-https://github.com/ashwinibarapatre28/issue-management-system
-
----
 
 ## 📌 Features
 
