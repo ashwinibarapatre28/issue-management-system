@@ -15,6 +15,7 @@ async function createUsers() {
         VALUES
         (?, ?, ?, ?),
         (?, ?, ?, ?),
+        (?, ?, ?, ?),
         (?, ?, ?, ?)
     `;
 
@@ -33,6 +34,11 @@ async function createUsers() {
 
             "User Two",
             "user2@gmail.com",
+            userPassword,
+            "user",
+
+            "User Three",
+            "user3@gmail.com",
             userPassword,
             "user"
         ],

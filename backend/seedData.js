@@ -9,9 +9,9 @@ async function seed() {
         // 1. Seed Users if table empty or missing specific users
         const users = [
             ["Admin", "admin@gmail.com", adminPass, "admin"],
-            ["User 1", "user1@gmail.com", userPass, "user"],
-            ["User 2", "user2@gmail.com", userPass, "user"],
-            ["User 3", "user3@gmail.com", userPass, "user"]
+            ["User One", "user1@gmail.com", userPass, "user"],
+            ["User Two", "user2@gmail.com", userPass, "user"],
+            ["User Three", "user3@gmail.com", userPass, "user"]
         ];
 
         for (const u of users) {
@@ -29,9 +29,9 @@ async function seed() {
                 const userMap = {};
                 userRows.forEach(row => { userMap[row.name] = row.id; });
 
-                const u1Id = userMap["User 1"] || 2;
-                const u2Id = userMap["User 2"] || 3;
-                const u3Id = userMap["User 3"] || 4;
+                const u1Id = userMap["User One"] || userMap["User 1"] || 2;
+                const u2Id = userMap["User Two"] || userMap["User 2"] || 3;
+                const u3Id = userMap["User Three"] || userMap["User 3"] || 4;
 
                 // 2. Seed Issues matching screenshot
                 const issues = [

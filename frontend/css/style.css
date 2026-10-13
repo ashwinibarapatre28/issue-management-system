@@ -329,11 +329,61 @@ button:hover, .btn:hover {
     margin-top: 6px;
 }
 
-#loginMessage {
+#loginMessage,
+.auth-message {
     margin-top: 14px;
     font-size: 14px;
     color: #dc2626;
     text-align: center;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+.auth-message.error {
+    color: #dc2626;
+}
+
+.auth-message.success {
+    color: #16a34a;
+}
+
+.auth-switch {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+    transition: color 0.15s ease;
+}
+
+.auth-switch a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.auth-back {
+    margin-top: 14px;
+    text-align: center;
+}
+
+.auth-back a {
+    color: #64748b;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+.auth-back a:hover {
+    color: #0f172a;
 }
 
 /* ==================================================== */
